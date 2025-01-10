@@ -1,0 +1,257 @@
+/* Sub-page Styles */
+.sub-pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.sub-page {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;   
+}
+
+.sub-page:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sub-page h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #fc6600;
+    padding-bottom: 8px;
+}
+
+.sub-page p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive untuk sub-pages */
+@media screen and (max-width: 768px) {
+    .sub-pages {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .sub-page {
+        margin-bottom: 15px;
+    }
+
+    .sub-page h2 {
+        font-size: 1.3rem;
+    }
+
+    /*reset css*/
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+nav {
+    background-color:rgb(20, 19, 18);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;   
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fc6600;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* Main Content Styles */
+main {
+    margin-top: 60px;
+    padding: 20px;
+    min-height: calc(100vh - 70px - 400px); /* Accounting for navbar and footer */
+    z-index: 999;
+    --_mesh-gradient-blend-mode: normal;
+    background: radial-gradient(at 98.6468200270636% 0%, #fb8500 0px, transparent 50%), radial-gradient(at 0% 98.0561555075594%, #f4a261 0px, transparent 50%) #000000;
+    mix-blend-mode: var(--_mesh-gradient-blend-mode);
+    filter: blur(var(--_mesh-gradient-blur));
+    font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.page {
+    display: none;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page h1, p{
+    color: white;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Footer Styles */
+.footer {
+    background-color:rgb(20, 19, 18);
+    color: white;
+    padding: 40px 0 6px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 20px;
+    color: #fc6600;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #fc6600;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.newsletter-form button {
+    padding: 8px;
+    background-color: #fc6600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color:rgb(226, 147, 95);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 2px;
+    border-top: 1px solid #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav {
+        padding: 1rem:
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        background-color: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 1px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .newsletter-form {
+        align-items: center;
+    }
+}
