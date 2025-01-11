@@ -59,6 +59,9 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar Styles */
@@ -71,7 +74,8 @@ nav {
     z-index: 100;
     font-family: "Poppins", serif;
     font-weight: 700;
-    font-style: normal;   
+    font-style: normal; 
+    z-index: 1000  
 }
 
 .nav-links {
@@ -95,6 +99,7 @@ nav {
 .hamburger {
     display: none;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .bar {
@@ -108,14 +113,15 @@ nav {
 
 /* Main Content Styles */
 main {
-    margin-top: 60px;
+    margin-top: 30px;
     padding: 20px;
     min-height: calc(100vh - 70px - 400px); /* Accounting for navbar and footer */
-    z-index: 999;
+    z-index: 1;
     --_mesh-gradient-blend-mode: normal;
     background: radial-gradient(at 98.6468200270636% 0%, #fb8500 0px, transparent 50%), radial-gradient(at 0% 98.0561555075594%, #f4a261 0px, transparent 50%) #000000;
     mix-blend-mode: var(--_mesh-gradient-blend-mode);
     filter: blur(var(--_mesh-gradient-blur));
+    flex: 1;
 }
 
 .page {
@@ -134,6 +140,7 @@ main {
 
 .page.active {
     display: block;
+    color: white;
 }
 
 /* Footer Styles */
@@ -141,6 +148,8 @@ main {
     background-color:rgb(20, 19, 18);
     color: white;
     padding: 40px 0 6px;
+    margin-top: auto;
+    width: 100%;
 }
 
 .footer-content {
@@ -155,7 +164,7 @@ main {
 .footer-section {
     flex: 1;
     min-width: 250px;
-    margin: 20px;
+    margin: 5px;
 }
 
 .footer-section h3 {
