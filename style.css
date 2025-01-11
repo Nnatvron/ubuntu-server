@@ -37,6 +37,10 @@
 @media screen and (max-width: 768px) {
     .sub-pages {
         grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
         padding: 10px;
     }
 
@@ -300,5 +304,9 @@ main {
 
     .footer-content {
         padding: 0 40px;
+    }
+
+    .footer-bottom {
+        font-size: 10px;
     }
 }
