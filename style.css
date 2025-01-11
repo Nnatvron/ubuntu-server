@@ -116,9 +116,6 @@ main {
     background: radial-gradient(at 98.6468200270636% 0%, #fb8500 0px, transparent 50%), radial-gradient(at 0% 98.0561555075594%, #f4a261 0px, transparent 50%) #000000;
     mix-blend-mode: var(--_mesh-gradient-blend-mode);
     filter: blur(var(--_mesh-gradient-blur));
-    font-family: "Jersey 15", serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 .page {
@@ -128,8 +125,11 @@ main {
     margin: 0 auto;
 }
 
-.page h1, p{
+.page h1, h2{
     color: white;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;   
 }
 
 .page.active {
@@ -253,5 +253,43 @@ main {
 
     .newsletter-form {
         align-items: center;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .sub-pages {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+    }
+
+    .footer-content {
+        padding: 0 30px;
+    }
+
+    .footer-section {
+        min-width: 200px;
+    }
+
+    main {
+        padding: 30px;
+    }
+
+    .nav-links {
+        padding: 0 30px;
+    }
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1025px) {
+    .sub-pages {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .page {
+        padding: 40px;
+    }
+
+    .footer-content {
+        padding: 0 40px;
     }
 }
