@@ -4,52 +4,45 @@ const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    // Animasi hamburger menu
     const bars = document.querySelectorAll('.bar');
     bars.forEach(bar => bar.classList.toggle('active'));
 });
 
-// Page Navigation dengan perbaikan AOS
+// Page Navigation dengan perbaikan AOS untuk mobile
 const navItems = document.querySelectorAll('.nav-links a');
 const pages = document.querySelectorAll('.page');
 
 navItems.forEach(item => {
-    item.addEventListener('click', (e) => {
+    item.addEventListener('click', async (e) => {
         e.preventDefault();
         const pageId = item.getAttribute('data-page');
         
         // Hapus kelas active dari semua halaman
         pages.forEach(page => {
             page.classList.remove('active');
+            // Reset AOS untuk semua elemen
+            const aosElements = page.querySelectorAll('[data-aos]');
+            aosElements.forEach(el => {
+                el.classList.remove('aos-animate');
+            });
         });
 
         // Tambah kelas active ke halaman yang dipilih
         const targetPage = document.getElementById(pageId);
         targetPage.classList.add('active');
         
-        // Reset AOS animations
-        const aosElements = targetPage.querySelectorAll('[data-aos]');
-        aosElements.forEach(element => {
-            element.classList.remove('aos-animate');
-        });
+        // Tunggu sebentar untuk transisi halaman
+        await new Promise(resolve => setTimeout(resolve, 100));
         
-        // Force reflow
-        void targetPage.offsetWidth;
+        // Reinisialisasi AOS untuk halaman baru
+        AOS.refreshHard();
         
-        // Re-initialize AOS for the new page
-        setTimeout(() => {
-            AOS.refresh();
-            aosElements.forEach(element => {
-                element.classList.add('aos-animate');
-            });
-        }, 10);
-
         // Tutup menu mobile jika terbuka
         navLinks.classList.remove('active');
     });
 });
 
-// Newsletter Form Handling
+// Newsletter Form Handling (tidak berubah)
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
@@ -62,7 +55,7 @@ if (newsletterForm) {
     });
 }
 
-// Smooth Scrolling untuk semua link internal
+// Smooth Scrolling (tidak berubah)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -75,16 +68,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Inisialisasi AOS dengan konfigurasi yang lebih baik
-AOS.init({
-    once: false,
-    mirror: true,
-    offset: 50,
-    duration: 1000,
-    disable: 'mobile'
+// Inisialisasi AOS dengan konfigurasi yang dioptimalkan untuk mobile
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        once: false,
+        mirror: false,
+        offset: 30,
+        delay: 50,
+        duration: 1500,
+        easing: 'ease-in-out',
+        anchorPlacement: 'top-bottom',
+        startEvent: 'DOMContentLoaded',
+        useClassNames: true,
+        disableMutationObserver: false,
+        throttleDelay: 99,
+    });
 });
 
-// Reinitialize AOS when switching pages
-window.addEventListener('load', () => {
-    AOS.refresh();
+// Refresh AOS saat window di-resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        AOS.refresh();
+    }, 250);
 });
