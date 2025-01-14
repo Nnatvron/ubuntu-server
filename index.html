@@ -6,6 +6,7 @@
     <title>Ubuntu Server Tutorial</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,119 +32,117 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Home Page -->
         <div id="home" class="page active">
-            <h1>Ubuntu Server</h1>
-            <p>Selamat datang di sini menyediakan tutorial membuat ubuntu server.</p>
+            <h1 data-aos="fade-down" data-aos-duration="1000">Ubuntu Server</h1>
+            <p data-aos="fade-up" data-aos-duration="1000">Selamat datang di sini menyediakan tutorial membuat ubuntu server.</p>
             <div class="sub-pages">
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" class="sub-page">
                     <h2>Login</h2>
                     <p>Login menggunakan username dan passwowrd yang kalian buat.</p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sub-page">
                     <h2>Login Sebagai Root</h2>
                     <p>Akses root dengan perintah : <b>sudo su</b> , dan masukan password kembali mengunakan pasword login awal tadi.</p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="sub-page">
                     <h2>Konfigurasi Jaringan</h2>
                     <p>Cek IP dengan perintah : <b>ifconfig</b>. Jika terdapat IP seperti gambar diatas, ketikan perintah : <b>nano /etc/resolv.conf dan atur seperti gambar diatas.</b></p>
                 </div>
             </div>
         </div>
 
-        <!-- About Page -->
+        <!-- About Page (Bind 9) -->
         <div id="about" class="page">
-            <h1>Bind 9</h1>
+            <h1 data-aos="fade-down" data-aos-duration="1000">Bind 9</h1>
             <div class="sub-pages">
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" class="sub-page">
                     <h2>Instalasi Bind 9</h2>
                     <p>Ketikan perintah : <b>apt-get install bind9</b> <i>(jika gagal ketik "sudo dpkg --configure -a"/"apt-get update")</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sub-page">
                     <h2>Konfigurasi Default Zones</h2>
                     <p>Ketikan perintah : <b>nano /etc/bind/named.conf.default-zones</b> . Dan sesuaikan seperti gambar diatas <i>(Untuk IP di balik misalnya 192.168.10.1 menjadi 10.168.192, dan domain menggunakan domain sendiri)</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="sub-page">
                     <h2>Konfigurasi Local LoopBack Interface</h2>
                     <p>Ketikan perintah : <b>cp /etc/bind/db.local (spasi) /etc/bind/smk.db</b> .Setelah itu ketikan : <b>nano /etc/bind/smk.db</b> , dan ikuti seperti gambar diatas dan sesuaikan IP dan Domain anda.</p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="sub-page">
                     <h2>Konfigurasi Local LoopBack Interface 2</h2>
-                    <p>Ketikan perintah : <b>cp /etc/bind/smk.db (spasi) /etc/bind/smk.ip</b>> .Setelah itu ketikan : <b>nano /etc/bind/smk.ip</b> <i>(Sesuaikan IP dan Domain anda seperti gambar diatas, Angka 117 itu didapat dari Ip akhir)</i></p>
+                    <p>Ketikan perintah : <b>cp /etc/bind/smk.db (spasi) /etc/bind/smk.ip</b> .Setelah itu ketikan : <b>nano /etc/bind/smk.ip</b> <i>(Sesuaikan IP dan Domain anda seperti gambar diatas, Angka 117 itu didapat dari Ip akhir)</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" class="sub-page">
                     <h2>Restart Bind9</h2>
                     <p>Ketikan perintah : <b>systemctl restart bind9</b></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="sub-page">
                     <h2>Testing DNS Server</h2>
                     <p>Ketikan perintah : <b>nslookup (Domain)</b> , ketikan perintah : <b>nslookup (IP)</b> .Jika berhasil maka akan seperti gambar diatas.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Services Page -->
+        <!-- Services Page (Apache) -->
         <div id="services" class="page">
-            <h1>Apache</h1>
+            <h1 data-aos="fade-down" data-aos-duration="1000">Apache</h1>
             <div class="sub-pages">
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" class="sub-page">
                     <h2>Instalasi Apache</h2>
                     <p>Ketikan perintah : <b>apt-get install apache2 mysql-server phpmyadmin</b> <i>(isikan password untuk database mysql dan pilih apache)</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sub-page">
                     <h2>Setting Apache</h2>
                     <p>ketikan perintah : <b>nano /etc/apache2/sites-available/000-default.conf</b> <i>(sesuaikan IP dan domain seperti digambar)</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="sub-page">
                     <h2>Restart Apache</h2>
                     <p>Ketikan perintah : <b>systemctl restart apache2</b></p>
                 </div>
             </div>
         </div>
 
-        <!-- Portfolio Page -->
+        <!-- Portfolio Page (Web Server) -->
         <div id="portfolio" class="page">
-            <h1>Web Server</h1>
+            <h1 data-aos="fade-down" data-aos-duration="1000">Web Server</h1>
             <div class="sub-pages">
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" class="sub-page">
                     <h2>Akses Web Server</h2>
                     <p><i>Jika domain tidak bisa dibuka, ubah dns pada network connections menjadi IP server anda/IP virtual box</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sub-page">
                     <h2>Akses PHPMYADMIN</h2>
                     <p>Jika tidak bisa buka phpmyadmin, ketikan perintah : <b>sudo -H nano /etc/apache2/apache2.conf</b> (tambahkan <b>include /etc/phpmyadmin/apache.conf</b> pada baris paling bawah)</i></p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="sub-page">
                     <h2>Restart Apache</h2>
                     <p>Ketikan perintah : <b>systemctl restart apache2</b></p>
                 </div>
             </div>
         </div>
 
-        <!-- Contact Page -->
+        <!-- Contact Page (Samba) -->
         <div id="contact" class="page">
-            <h1>Samba</h1>
+            <h1 data-aos="fade-down" data-aos-duration="1000">Samba</h1>
             <div class="sub-pages">
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" class="sub-page">
                     <h2>Instalasi Samba</h2>
                     <p>Langkah-langkah instalasi Samba Server...</p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sub-page">
                     <h2>Konfigurasi Share</h2>
                     <p>Mengatur folder sharing di Samba...</p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="sub-page">
                     <h2>User Management</h2>
                     <p>Mengelola pengguna dan hak akses Samba...</p>
                 </div>
-                <div class="sub-page">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="sub-page">
                     <h2>Windows Integration</h2>
                     <p>Mengintegrasikan Samba dengan jaringan Windows...</p>
                 </div>
             </div>
         </div>
     </main>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -178,7 +177,12 @@
             <p>&copy; 2025 Natrxx Website. All rights reserved.</p>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init();
+        AOS.refresh();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
