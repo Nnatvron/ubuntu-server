@@ -1,4 +1,4 @@
-// Hamburger Menu Toggle
+// Constants and DOM element selections
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -9,7 +9,7 @@ hamburger.addEventListener('click', () => {
     bars.forEach(bar => bar.classList.toggle('active'));
 });
 
-// Page Navigation
+// Page Navigation dengan perbaikan AOS
 const navItems = document.querySelectorAll('.nav-links a');
 const pages = document.querySelectorAll('.page');
 
@@ -24,7 +24,25 @@ navItems.forEach(item => {
         });
 
         // Tambah kelas active ke halaman yang dipilih
-        document.getElementById(pageId).classList.add('active');
+        const targetPage = document.getElementById(pageId);
+        targetPage.classList.add('active');
+        
+        // Reset AOS animations
+        const aosElements = targetPage.querySelectorAll('[data-aos]');
+        aosElements.forEach(element => {
+            element.classList.remove('aos-animate');
+        });
+        
+        // Force reflow
+        void targetPage.offsetWidth;
+        
+        // Re-initialize AOS for the new page
+        setTimeout(() => {
+            AOS.refresh();
+            aosElements.forEach(element => {
+                element.classList.add('aos-animate');
+            });
+        }, 10);
 
         // Tutup menu mobile jika terbuka
         navLinks.classList.remove('active');
@@ -55,4 +73,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+});
+
+// Inisialisasi AOS dengan konfigurasi yang lebih baik
+AOS.init({
+    once: false,
+    mirror: true,
+    offset: 50,
+    duration: 1000,
+    disable: 'mobile'
+});
+
+// Reinitialize AOS when switching pages
+window.addEventListener('load', () => {
+    AOS.refresh();
 });
