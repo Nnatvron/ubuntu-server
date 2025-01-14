@@ -126,19 +126,19 @@
             <div class="sub-pages">
                 <div data-aos="fade-up" data-aos-duration="1000" class="sub-page">
                     <h2>Instalasi Samba</h2>
-                    <p>Langkah-langkah instalasi Samba Server...</p>
+                    <p>Ketikan perintah : <b>apt-get install samba</b>, lalu ketikan perintah : <b>chmod 777 /var/www/html/ -R</b>, lalu ketikan perintah : <b>useradd tamu</b>, lalu ketikan perintah : <b>smbpasswd -a tamu</b></p>
                 </div>
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sub-page">
-                    <h2>Konfigurasi Share</h2>
-                    <p>Mengatur folder sharing di Samba...</p>
+                    <h2>Setting Samba</h2>
+                    <p>Ketikan perintah : <b>nano /etc/samba/smb.conf</b> <i>(cari kata share definition dengan tekan ctrl+w)</i>, setelah itu ikuti seperti di gambar.</p>
                 </div>
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="sub-page">
-                    <h2>User Management</h2>
-                    <p>Mengelola pengguna dan hak akses Samba...</p>
+                    <h2>Restart Samba</h2>
+                    <p>Ketikan perintah : <b>systemctl restart smbd</b></p>
                 </div>
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="sub-page">
-                    <h2>Windows Integration</h2>
-                    <p>Mengintegrasikan Samba dengan jaringan Windows...</p>
+                    <h2>Memasukan Template Website</h2>
+                    <p>Masuk ke windows run (windows+r) dan ketikan : <b>\ip server</b>, lalu ketikan ok. masukan user dan password "tamu" dan jika ingin ubah tampilan web copy template web di dalam folder www.</p>
                 </div>
             </div>
         </div>
@@ -159,7 +159,6 @@
             <div class="footer-section">
                 <h3>Sosial Media</h3>
                 <div class="social-links">
-                    <a href="https://natar.vercel.app/" class="social-link">My Website</a>
                     <a href="https://www.facebook.com/natra.natra.3154/" class="social-link">Facebook</a>
                     <a href="https://www.instagram.com/natar.05" class="social-link">Instagram</a>
                     <a href="https://github.com/Nnatvron" class="social-link">Github</a>
