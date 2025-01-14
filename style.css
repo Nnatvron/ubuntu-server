@@ -4,6 +4,9 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .sub-page {
@@ -31,6 +34,7 @@
     color: #666;
     font-size: 1rem;
     line-height: 1.6;
+    word-break: break-word;
 }
 
 /* Responsive untuk sub-pages */
@@ -41,15 +45,34 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
         margin-top: 30px;
-        padding: 10px;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .sub-page {
         margin-bottom: 15px;
     }
 
+    .sub-page p {
+        font-size: 0.9rem;
+    }
+
+    .sub-page p b {
+        word-break: break-word;
+        display: inline-block;
+    }
+
     .sub-page h2 {
         font-size: 1.3rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+    
+    .sub-pages {
+        padding: 5px;
     }
 
     /*reset css*/
@@ -224,6 +247,27 @@ main {
     border-top: 1px solid #555;
 }
 
+/* Tambahkan ini ke CSS Anda */
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Pastikan elemen AOS tidak tersembunyi saat halaman tidak aktif */
+[data-aos] {
+    visibility: hidden;
+}
+
+.page.active [data-aos] {
+    visibility: visible;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .nav {
@@ -305,8 +349,3 @@ main {
     .footer-content {
         padding: 0 40px;
     }
-
-    .footer-bottom {
-        font-size: 10px;
-    }
-}
