@@ -349,3 +349,40 @@ main {
     .footer-content {
         padding: 0 40px;
     }
+}
+
+/* AOS Mobile Fixes */
+@media screen and (max-width: 768px) {
+    [data-aos] {
+        transition-duration: 1500ms !important;
+    }
+    
+    .sub-page {
+        transition-delay: 0ms !important;
+    }
+    
+    .page {
+        transition: opacity 0.3s ease-in-out;
+        min-height: 100vh;
+    }
+    
+    .page.active {
+        opacity: 1;
+        display: block;
+    }
+    
+    /* Perbaikan untuk elemen yang menggunakan AOS */
+    [data-aos].aos-animate {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    /* Pastikan elemen yang memiliki AOS terlihat dengan baik */
+    .sub-pages [data-aos] {
+        opacity: 0;
+    }
+    
+    .sub-pages [data-aos].aos-animate {
+        opacity: 1;
+    }
+}
